@@ -54,7 +54,7 @@ module SimpleCalendar
             content_tag(:tr, :class => (week.include?(Date.today) ? "current-week week" : "week")) do
 
               week.collect do |date|
-                tb_class = ["span1"]
+                tb_class = []
                 tb_class << not_current_month = (date.month == selected_month.month ? "" : "not-currnet-month")
                 tb_class << (Date.today == date ? "today day" : "day")
 
