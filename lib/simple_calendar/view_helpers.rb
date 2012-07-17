@@ -45,7 +45,7 @@ module SimpleCalendar
     def draw_calendar(selected_month, month, current_date, events, block)
       tags = []
 
-      content_tag(:table, :class => "table table-bordered table-striped calendar") do
+      content_tag(:table, :class => "table table-bordered calendar") do
         tags << month_header(selected_month)
         tags << content_tag(:thead, content_tag(:tr, I18n.t("date.abbr_day_names").collect { |name| content_tag :th, name, :class => (selected_month.month == Date.today.month && Date.today.strftime("%a") == name ? "current-day" : nil)}.join.html_safe))
         tags << content_tag(:tbody) do
@@ -54,7 +54,7 @@ module SimpleCalendar
             content_tag(:tr, :class => (week.include?(Date.today) ? "current-week week" : "week")) do
 
               week.collect do |date|
-                tb_class = []
+                tb_class = ["span1"]
                 tb_class << not_current_month = (date.month == selected_month.month ? "" : "not-currnet-month")
                 tb_class << (Date.today == date ? "today day" : "day")
 
