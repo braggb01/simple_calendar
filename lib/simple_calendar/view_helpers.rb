@@ -85,7 +85,7 @@ module SimpleCalendar
 
     # Generates the header that includes the month and next and previous months
     def month_header(selected_month)
-      content_tag :h2 do
+      content_tag :h2, :class => "calendar_header" do
         previous_month = selected_month.advance :months => -1
         next_month = selected_month.advance :months => 1
         tags = []
